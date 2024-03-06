@@ -1,17 +1,17 @@
 import Auth.AuthView;
-import CrawlerService.CrawlerView;
+import crawler.CrawlerView;
 import account.AccountView;
 import board.BoardView;
-import product.Product;
-import product.ProductView;
 import user.UserView;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     //파사드 패턴 - 진입로를 하나로 들어가는 것
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // 메인 메서드 static (변하지 않는 객체) 프로젝트에 단 하나 the one
         Scanner sc = new Scanner(System.in);
         while (true) {

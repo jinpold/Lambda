@@ -7,7 +7,7 @@ import lombok.*;
 
 public class User {
 
-    private Long id;
+    private Long   id;
     private String username;
     private String password;
     private String checkPassword;

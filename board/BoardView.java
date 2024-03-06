@@ -1,10 +1,6 @@
 package board;
-
-
-
 import common.UtilService;
 import common.UtilServiceImpl;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

@@ -5,9 +5,7 @@ import java.util.Scanner;
 public class UserView {
 
     public static void main(Scanner sc) {
-
-        // 인터페이스 연결순서
-        // 1)메인 -> 뷰 → 2)컨트롤러 → 3)서비스임플 → 4)레파지토리
+        
         UserController userController = new UserController(); // 유저 뷰 <-> 컨트롤러 연결
         String msg = userController.addUsers(); // 5명의 회원목록을 만든다.
         System.out.println("addUsers의 결과: " + msg);

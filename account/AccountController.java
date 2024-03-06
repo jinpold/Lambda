@@ -11,7 +11,8 @@ public class AccountController {
     // 생성자를 알트 + insert로 만든다.
     AccountServiceImpl accountService;
 
-    public AccountController() {this.accountService = AccountServiceImpl.getInstance();
+    public AccountController() {
+        this.accountService = AccountServiceImpl.getInstance();
     }
     //  new AccountServiceImpl -> AccountServiceImpl.getInstance(); 바꿔준다.
     // 싱글톤 패턴 종료.

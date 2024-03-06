@@ -65,6 +65,11 @@ public class UtilServiceImpl implements UtilService {
         return names[createRandomInteger(0,6)];
     }
 
+//    public String createRandomProduct() {
+//        String[] names = {};
+//        return names[createRandomInteger(0,6)];
+//    }
+
     @Override
     public String createRandomCompany() {
         String[] companies = {"구글", "엔비디아", "메타", "삼성", "LG", "애플", "네이버", "넷플릭스", "쿠팡"};
