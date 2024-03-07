@@ -1,5 +1,6 @@
 package user;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -11,8 +12,6 @@ public class UserController {
     public UserController() {
         this.userService = UserServiceImpl.getInstance();
     }
-
-
     public String addUsers() {
         return userService.addUsers();
     }
@@ -85,6 +84,17 @@ public class UserController {
     public Map<String, ?> getUserMap() {
         System.out.println("전체 목록 출력");
         return userService.getUserMap();
+    }
+
+    public String test(Scanner sc) {
+        return userService.test();
+    }
+
+    public User findByUser(Scanner sc) {
+        return null;
+    }
+    public List<?> findUsers () throws SQLException {
+        return userService.findUsers();
     }
 }
 

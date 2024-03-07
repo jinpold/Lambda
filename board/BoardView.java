@@ -11,16 +11,14 @@ public class BoardView {
         List<Board> articles = new ArrayList<>();
         UtilService util = UtilServiceImpl.getInstance();
         Board article = Board.builder()
-                .title(util.createRandomTitle())
-                .content(util.createRandomContent())
-                .writer(util.createRandomWriter())
+                .boardname(util.createRandomTitle())
+                .boardType(util.createRandomContent())
                 .build();
 
         for(int i=0; i<5; i++) {
             articles.add(Board.builder()
-                    .title(util.createRandomTitle())
-                    .content(util.createRandomContent())
-                    .writer(util.createRandomWriter())
+                    .boardname(util.createRandomTitle())
+                    .boardType(util.createRandomContent())
                     .build());
         }
 //        for(BoardDto articles2 : articles) { 향상된 for문

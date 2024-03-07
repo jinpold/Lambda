@@ -2,17 +2,23 @@ package user;
 import common.AbstractService;
 import common.UtilService;
 import common.UtilServiceImpl;
+import crawler.CrawlerRepository;
 import enums.Messenger;
 
+import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class UserServiceImpl extends AbstractService<User> implements UserService {
 
     private static UserServiceImpl instance = new UserServiceImpl();
+
+    UserRepository userRepository;
+
     Map<String, User> users;
     private UserServiceImpl() {
         this.users = new HashMap<>();
+        this.userRepository= UserRepository.getInstance();
 
     }
     public static UserServiceImpl getInstance() {return instance;}
@@ -79,6 +85,9 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
                 .filter(i->i.getKey().equals(name))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
+
+
+
     @Override
     public List<?> findUsersByJob(String job) {
         System.out.println("findUsersByJob 파라미터 : "+job);
@@ -127,5 +136,13 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
         }
         users = map;
         return users.size() + "개 더미추가";
+    }
+
+    @Override
+    public String test() {
+        return userRepository.test();
+    }
+    public List<?> findUsers() throws SQLException {
+        return userRepository.findUsers();
     }
 }

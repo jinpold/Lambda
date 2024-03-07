@@ -1,20 +1,21 @@
 package user;
-
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserView {
 
-    public static void main(Scanner sc) {
+    public static void main(Scanner sc) throws SQLException {
         
-        UserController userController = new UserController(); // 유저 뷰 <-> 컨트롤러 연결
-        String msg = userController.addUsers(); // 5명의 회원목록을 만든다.
+        UserController userController = new UserController();
+        String msg = userController.addUsers();
         System.out.println("addUsers의 결과: " + msg);
-
 
         while (true) {
             System.out.println("[관리자메뉴] 0-종료\n " +
                     "1-회원가입\n " +
                     "2-로그인\n " +
+                    "3-re연결\n " +
                     "4-비번변경\n" +
                     "5-탈퇴\n" +
                     "6-회원목록\n" +
@@ -32,11 +33,11 @@ public class UserView {
                 case "2":
                     System.out.println("2-로그인");
                     System.out.println(userController.login(sc));
-                    //PersonDto user <-> 컨트롤러에서 스캐너로 받아서 뷰로 전달
                     break;
                 case "3":
                     System.out.println("3-ID검색");
-                    System.out.println(userController.getOne(sc));
+                    User user = userController.findByUser(sc);
+                    System.out.println(user);
                     break;
                 case "4":
                     System.out.println("4-비번변경");
@@ -48,13 +49,12 @@ public class UserView {
                     break;
                 case "6":
                     System.out.println("6-회원목록");
-                    // ("주의" 람다식 활용하면 출력 시 sout을 사용하지 말 것.)
-                    userController.getUserMap();
+                    List<?> users = userController.findUsers();
+                    users.forEach(i -> System.out.println(i));
                     break;
                 case "7":
                     System.out.println("7-이름검색");
-                    userController.findUsersByName(sc).forEach((i)->{
-                        System.out.println(i);
+                    userController.findUsersByName(sc).forEach((i)->{System.out.println(i);
                     });
                     break;
                 case "8":

@@ -1,5 +1,4 @@
 package board;
-
 import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -9,16 +8,14 @@ import lombok.*;
 
 public class Board {
 
-    private int id;
-    private String title;
-    private String content;
-    private String writer;
+    private long id;
+    private String boardname;
+    private String boardType;
 
     @Builder(builderMethodName = "builder")
-    public Board(int id, String title, String content, String writer) {
+    public Board(int id, String boardname, String boardType) {
         this.id = id;
-        this.title = title;
-        this.content = content;
-        this.writer = writer;
+        this.boardname = boardname;
+        this.boardType = boardType;
     }
 }

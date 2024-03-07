@@ -12,16 +12,16 @@ public class User {
     private String password;
     private String checkPassword;
     private String name;
-    private String ssn;
     private String personNumber;
     private String phoneNumber;
     private String address;
     private String job;
 
     @Builder(builderMethodName = "builder")
-    public User(String username, String password, String checkPassword,
+    public User(Long id, String username, String password, String checkPassword,
                 String name, String personNumber, String phoneNumber,
                 String address, String job) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.checkPassword = checkPassword;

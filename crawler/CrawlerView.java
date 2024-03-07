@@ -13,13 +13,7 @@ public class CrawlerView {
         while (true) {
             System.out.println("[사용자메뉴] 0-종료\n " +
                     "1-벅스뮤직\n " +
-                    "2-멜론뮤직\n " +
-                    "4-비번변경\n" +
-                    "5-탈퇴\n" +
-                    "6-회원목록\n" +
-                    "7-이름검색\n" +
-                    "8-직업검색\n" +
-                    "9-회원수");
+                    "2-멜론뮤직\n ");
             switch (sc.next()) {
                 case "0":
                     System.out.println("종료");
@@ -48,27 +42,7 @@ public class CrawlerView {
                         System.out.println(rank2.next().text() + "위 " + artist2.next().text() + " - " + title2.next().text());
                     }
                     break;
-                case "3":
-                    System.out.println("3-ID검색");
-                    break;
-                case "4":
-                    System.out.println("4-비번변경");
-                    break;
-                case "5":
-                    System.out.println("5-탈퇴");
-                    break;
-                case "6":
-                    System.out.println("6-회원목록");
-                    break;
-                case "7":
-                    System.out.println("7-이름검색");
-                    break;
-                case "8":
-                    System.out.println("8-직업검색");
-                    break;
-                case "9":
-                    System.out.println("9-회원수");
-                    break;
+
             }
         }
 

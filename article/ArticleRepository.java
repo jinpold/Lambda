@@ -1,42 +1,35 @@
-package user;
+package article;
+import user.UserRepository;
+
 import java.sql.*;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class UserRepository {
+public class ArticleRepository {
 
-    private static UserRepository instance;
+    private static ArticleRepository instance;
 
     static {
         try {
-            instance = new UserRepository();
+            instance = new ArticleRepository();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-
     private Connection connection;
-    private UserRepository() throws SQLException {
+    private ArticleRepository() throws SQLException {
 
-         connection = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/jamesdb",
-            "james",
-            "password");
-
+        connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/jamesdb",
+                "james",
+                "password");
     }
-    public static UserRepository getInstance() {
+    public static ArticleRepository getInstance() {
         return instance;
     }
+    public List<?> findArticles() throws SQLException {
 
-    public String test() {
-        return "UserRepository 연결";
-    }
-
-    public List<?> findUsers() throws SQLException {
-
-        String sql = "select * from board";
+        String sql = "select * from articles";
         PreparedStatement pstmt = connection.prepareStatement(sql);
         ResultSet rs = pstmt.executeQuery();
         if (rs.next()) {
@@ -46,11 +39,8 @@ public class UserRepository {
                         rs.getString("Title"),
                         rs.getString("Content"),
                         rs.getString("Writer"));
-
             } while (rs.next());
-
         }else{
-
             System.out.println("데이터가 없습니다.");
         }
         rs.close();
