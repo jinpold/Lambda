@@ -1,10 +1,26 @@
 package user;
 
+import java.sql.*;
+
 public class UserRepository {
 
-    UserService userService;
+    public void findUsers() throws SQLException {
 
-    public UserRepository() {
-        this.userService = UserServiceImpl.getInstance();
+
+        String url = "jdbc:mysql://localhost:3306/jamesdb";
+        String userName = "james";
+        String password = "password";
+
+        Connection connection = DriverManager.getConnection(url, userName, password);
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select * from board");
+
+        resultSet.next();
+        String name = resultSet.getString("name");
+        System.out.println(name);
+
+        resultSet.close();
+        statement.close();
+        connection.close();
     }
 }

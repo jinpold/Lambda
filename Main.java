@@ -1,9 +1,7 @@
-import Auth.AuthView;
 import crawler.CrawlerView;
 import account.AccountView;
 import board.BoardView;
 import user.UserView;
-
 import java.io.IOException;
 import java.util.Scanner;
 
