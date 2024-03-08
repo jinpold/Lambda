@@ -18,6 +18,9 @@ public interface UserService {
     Map<String, ?> findUsersByJobFromMap(String job);
     Map<String, ?> findUsersByNameFromMap(String name);
     List<?> findUsers () throws SQLException;
+    String createTable () throws SQLException;
+    String deleteTable () throws SQLException;
+    String insertData(User user) throws SQLException;
 
 }
 

@@ -1,7 +1,6 @@
 package article;
-import user.UserRepository;
-
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleRepository {
@@ -27,25 +26,26 @@ public class ArticleRepository {
     public static ArticleRepository getInstance() {
         return instance;
     }
-    public List<?> findArticles() throws SQLException {
-
+    public List<?> findAll() throws SQLException {
+        List<Article> ls= new ArrayList<>();
         String sql = "select * from articles";
         PreparedStatement pstmt = connection.prepareStatement(sql);
         ResultSet rs = pstmt.executeQuery();
         if (rs.next()) {
             do {
-                System.out.printf("ID: %d\t Title: %s\t Content: %s\t Writer: %s\n",
-                        rs.getInt("id"),
-                        rs.getString("Title"),
-                        rs.getString("Content"),
-                        rs.getString("Writer"));
+                ls.add(Article.builder()
+                                .id(rs.getLong("id"))
+                                .content(rs.getString("Title"))
+                                .writer(rs.getString("Writer"))
+                                .registerDate(rs.getString("register_date"))
+                                .build());
             } while (rs.next());
         }else{
-            System.out.println("데이터가 없습니다.");
+            System.out.println("NO Data");
         }
         rs.close();
         pstmt.close();
         connection.close();
-        return null;
+        return ls;
     }
 }

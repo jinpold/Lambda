@@ -12,28 +12,27 @@ public class User {
     private String password;
     private String checkPassword;
     private String name;
-    private String personNumber;
-    private String phoneNumber;
-    private String address;
+    private String phone;
+    private Long addressId;
     private String job;
+    private Double weight;
+    private Double height;
 
     @Builder(builderMethodName = "builder")
     public User(Long id, String username, String password, String checkPassword,
-                String name, String personNumber, String phoneNumber,
-                String address, String job) {
+                String name, String phone,String job, Double weight, Double height) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.checkPassword = checkPassword;
         this.name = name;
-        this.personNumber = personNumber;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
+        this.phone = phone;
         this.job = job;
+        this.weight = weight;
+        this.height = height;
     }
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
 

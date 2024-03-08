@@ -2,7 +2,6 @@ package user;
 import common.AbstractService;
 import common.UtilService;
 import common.UtilServiceImpl;
-import crawler.CrawlerRepository;
 import enums.Messenger;
 
 import java.sql.SQLException;
@@ -86,7 +85,10 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
-
+    @Override
+    public List<?> findUsers() throws SQLException {
+        return userRepository.findUsers();
+    }
 
     @Override
     public List<?> findUsersByJob(String job) {
@@ -142,7 +144,21 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     public String test() {
         return userRepository.test();
     }
-    public List<?> findUsers() throws SQLException {
-        return userRepository.findUsers();
+
+    @Override
+    public String createTable() throws SQLException {
+        return userRepository.createTable();
+    }
+    @Override
+    public String deleteTable() throws SQLException {
+        return userRepository.deleteTable();
+    }
+
+    public String insertData(User user) throws SQLException {
+        return userRepository.insertData(user);
+    }
+
+    public void sqlClose() throws SQLException {
+        userRepository.sqlClose();
     }
 }

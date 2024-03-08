@@ -17,8 +17,7 @@ public class ArticleView {
                     return;
                 case "1":
                     System.out.println("글목록");
-                    List<?> ls = controller.findArticles();
-                    ls.forEach(i -> System.out.println(i));
+                    controller.findAll().forEach(i -> System.out.println(i));
                     break;
             }
         }

@@ -1,16 +1,20 @@
 package user;
-
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
+import common.UtilService;
+import common.UtilServiceImpl;
 
-public class UserController {
+public class UserController  {
+
+    UtilService utilService;
     UserServiceImpl userService;
 
     public UserController() {
         this.userService = UserServiceImpl.getInstance();
+        this.utilService = UtilServiceImpl.getInstance();
     }
     public String addUsers() {
         return userService.addUsers();
@@ -23,9 +27,7 @@ public class UserController {
                 .password(sc.next())
                 .checkPassword(sc.next())
                 .name(sc.next())
-                .personNumber(sc.next())
-                .phoneNumber(sc.next())
-                .address(sc.next())
+                .phone(sc.next())
                 .job(sc.next())
                 .build());
         return "회원가입 성공";
@@ -89,12 +91,38 @@ public class UserController {
     public String test(Scanner sc) {
         return userService.test();
     }
-
-    public User findByUser(Scanner sc) {
-        return null;
-    }
     public List<?> findUsers () throws SQLException {
         return userService.findUsers();
+    }
+
+
+    public User findByUser(Scanner sc) throws SQLException {
+        return (User) userService.findUsers();
+    }
+
+    public String createTable() throws SQLException {
+        return userService.createTable();
+    }
+
+    public String deleteTable() throws SQLException {
+        return userService.deleteTable();
+    }
+
+    public String insertData(Scanner sc) throws SQLException {
+        return userService.insertData(User.builder()
+                .username(sc.next())
+                .password(sc.next())
+                .name(sc.next())
+                .phone(sc.next())
+                .job(sc.next())
+                .height(utilService.createRandomDouble(1,100))
+                .weight(utilService.createRandomDouble(1,100))
+                .build());
+
+    }
+
+    public void sqlClose() throws SQLException {
+        userService.sqlClose();
     }
 }
 

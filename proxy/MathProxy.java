@@ -30,19 +30,30 @@ public class MathProxy {
 
     public static BiFunction<Long, Long, Long> maxLong = Math::max;
 
+    //random
+
     public static Supplier<Double> randomSupDouble = Math::random;
+
+    //ceil
 
     public static Function<Double, Double> ceil = Math::ceil;
 
+    // floor
+
     public static Function<Double, Double> floor = Math::floor;
+
+    //round
 
     public static Function<Double, Long> round = Math::round;
 
+    //parseInt
+
     public static Function<String, Integer> parse = Integer::parseInt;
+
+    // pow
 
     public static BiFunction<Double, Double,Double> powDouble = Math::pow;
 
     public static BiFunction<Integer,Integer,Integer> powInt = (a, b) -> (int) Math.pow(a, b);
-
 
 }
