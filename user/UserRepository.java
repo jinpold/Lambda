@@ -1,5 +1,4 @@
 package user;
-import article.Article;
 import java.sql.*;
 import java.util.*;
 

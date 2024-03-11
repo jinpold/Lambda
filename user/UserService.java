@@ -24,7 +24,7 @@ public interface UserService {
     String deleteTable () throws SQLException;
     String insertData(User user) throws SQLException;
 
-    Messenger createTable() throws SQLException;;
+//    Messenger createTable() throws SQLException;;
 
 }
 
