@@ -1,5 +1,7 @@
 package user;
 
+import enums.Messenger;
+
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +23,8 @@ public interface UserService {
     String createTable () throws SQLException;
     String deleteTable () throws SQLException;
     String insertData(User user) throws SQLException;
+
+    Messenger createTable() throws SQLException;;
 
 }
 

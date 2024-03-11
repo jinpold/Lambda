@@ -30,6 +30,7 @@ public class Main {
                 case "m": AccountView.main(sc); break;
                 case "c": CrawlerView.main(sc); break;
                 case "a": ArticleView.main(sc); break;
+                case "j": JinView.main(sc); break;
             }
         }
     }

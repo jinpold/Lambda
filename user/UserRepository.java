@@ -75,14 +75,14 @@ public class UserRepository {
         PreparedStatement pstmt = connection.prepareStatement(sql);
         int result = pstmt.executeUpdate();
         System.out.println("쿼리의 반환값은 : " + result);
-        String msg = "";
-        if(result==0){
-            msg = "테이블 생성 성공";
-        }else{
-            msg = "테이블 생성 실패";
-        }
+//        String msg = "";
+//        if(result==0){
+//            msg = "테이블 생성 성공";
+//        }else{
+//            msg = "테이블 생성 실패";
+//        }
         pstmt.close();
-        return msg;
+        return (result==0) ? "테이블 생성 성공":"테이블 생성 실패" ; // 삼항연산자
 
     }
     public String deleteTable() throws SQLException {
@@ -94,9 +94,9 @@ public class UserRepository {
         System.out.println("쿼리의 반환값은 : " + result);
         String msg = "";
         if(result==0){
-            msg = "테이블 생성 성공";
+            msg = "테이블 삭제 성공";
         }else{
-            msg = "테이블 생성 실패";
+            msg = "테이블 삭제 실패";
         }
         pstmt.close();
         return msg;

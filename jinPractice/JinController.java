@@ -1,17 +1,16 @@
 package jinPractice;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class JinController {
 
-    private JinServiceImpl jinService;
+    JinServiceImpl jinService;
 
     public JinController() {
-        this.jinService =  JinServiceImpl.getInstance();
+        this.jinService = new JinServiceImpl();
     }
 
-    public List<?> findJin() throws SQLException {
+    public List<?> findJin() {
         return jinService.findJin();
     }
 }
