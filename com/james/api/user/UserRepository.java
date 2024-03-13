@@ -80,16 +80,15 @@ public class UserRepository {
     public Messenger deleteTable() throws SQLException {
 
         String sql = "DROP TABLE IF EXISTS users";
-        int result = pstmt.executeUpdate();
-        System.out.println("쿼리의 반환값은 : " + result);
         pstmt = connection.prepareStatement(sql);
-        return (result==0) ? Messenger.SUCCESS: Messenger.FAIL;
+        return (pstmt.executeUpdate()==0) ? Messenger.SUCCESS: Messenger.FAIL;
     }
 
     public Messenger insertData(User user) throws SQLException {
         String sql = "insert into users(id, username, password, name, phone, job, height, weight) \n" +
                 "values (id,?,?,?,?,?,?,?);";
 
+        pstmt = connection.prepareStatement(sql);
         pstmt.setString(1, user.getUsername());
         pstmt.setString(2, user.getPassword());
         pstmt.setString(3, user.getName());
@@ -97,10 +96,7 @@ public class UserRepository {
         pstmt.setString(5, user.getJob());
         pstmt.setDouble(6, user.getHeight());
         pstmt.setDouble(7, user.getWeight());
-        int result = pstmt.executeUpdate();
-        System.out.println("쿼리의 반환값은 : " + result);
-        pstmt = connection.prepareStatement(sql);
-        return (result == 1) ? Messenger.SUCCESS: Messenger.FAIL;
+        return (pstmt.executeUpdate() == 1) ? Messenger.SUCCESS: Messenger.FAIL;
     }
     public void sqlClose() throws SQLException {
         connection.close();
