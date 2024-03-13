@@ -100,7 +100,7 @@ public class UserRepository {
         int result = pstmt.executeUpdate();
         System.out.println("쿼리의 반환값은 : " + result);
         pstmt = connection.prepareStatement(sql);
-        return (result==1) ? Messenger.SUCCESS: Messenger.FAIL;
+        return (result == 1) ? Messenger.SUCCESS: Messenger.FAIL;
     }
     public void sqlClose() throws SQLException {
         connection.close();

@@ -1,7 +1,5 @@
 package com.james.api.enums;
-
 import com.james.api.user.UserController;
-
 import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.function.BiPredicate;
@@ -72,6 +70,14 @@ public enum UserRouter {
         }
         return true;
     }),
+    INSERT ("in", (a,b) -> {
+        try {
+            System.out.println((a.insertData(b)));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return true;
+    }),
 
     ERROR("error", (a,b) -> {
         System.out.println("ERROR 유효하지 않는 문자입니다.");
@@ -97,7 +103,8 @@ public enum UserRouter {
                 " job-직업검색\n" +
                 " count-회원수\n" +
                 " touch - 테이블생성\n" +
-                " rm - 테이블삭제\n");
+                " rm - 테이블삭제\n"+
+                " in - 데이터추가");
         String str = sc.next();
         return Stream.of(values())
                 .filter(i -> i.name.equals(str))
