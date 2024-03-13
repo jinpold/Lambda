@@ -24,8 +24,8 @@ public class UserRepository {
             "james",
             "password");
 
-        pstmt = null;
-        rs = null;
+         pstmt = null;
+         rs = null;
 
     }
     public static UserRepository getInstance() {
@@ -85,8 +85,8 @@ public class UserRepository {
     }
 
     public Messenger insertData(User user) throws SQLException {
-        String sql = "insert into users(id, username, password, name, phone, job, height, weight) \n" +
-                "values (id,?,?,?,?,?,?,?);";
+        String sql = "insert into users(username, password, name, phone, job, height, weight) \n" +
+                "values (?,?,?,?,?,?,?);";
 
         pstmt = connection.prepareStatement(sql);
         pstmt.setString(1, user.getUsername());

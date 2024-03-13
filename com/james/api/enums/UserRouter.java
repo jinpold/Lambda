@@ -83,6 +83,7 @@ public enum UserRouter {
         System.out.println("ERROR 유효하지 않는 문자입니다.");
         return true;
     });
+
     private final String name;
     private final BiPredicate<UserController, Scanner> biPredicate;
 
