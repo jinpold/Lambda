@@ -1,5 +1,4 @@
 import com.james.api.enums.Navigation;
-
 import java.util.Scanner;
 
 public class Main {

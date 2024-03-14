@@ -91,7 +91,6 @@ public enum UserRouter {
         this.name = name;
         this.biPredicate = biPredicate;
     }
-
     public static boolean router(UserController ctrl, Scanner sc)  {
         System.out.println("[메뉴] x-Exit\n" +
                 " j-회원가입\n" +
