@@ -12,8 +12,10 @@ import java.util.Scanner;
 
 public class UserController {
 
+    private static UserController instance = new UserController();
+
     UtilService utilService;
-    UserServiceImpl userService;
+    UserServiceImpl userService; // 필드
 
 
     public UserController() {
@@ -21,9 +23,14 @@ public class UserController {
         this.utilService = UtilServiceImpl.getInstance();
     }
 
+    public static UserController getInstance() {
+        return instance;
+    }
+
     public String addUsers() {
         return userService.addUsers();
     }
+
 
     public Messenger save(Scanner sc) throws SQLException {
         System.out.println("\"아이디, 비밀번호, 비밀번호확인, 이름, 전화번호, 폰번호, 주소, 직업을 입력하세요\"");

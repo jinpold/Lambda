@@ -5,7 +5,13 @@ import java.util.List;
 
 public class ArticleController {
 
+    private static ArticleController instance = new ArticleController();
+
     private ArticleServiceImpl service;
+
+    public static ArticleController getInstance() {
+        return instance;
+    }
 
     public ArticleController() {
         this.service = ArticleServiceImpl.getInstnace();
