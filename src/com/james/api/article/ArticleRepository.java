@@ -20,12 +20,12 @@ public class ArticleRepository {
 
         connection = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/jamesdb",
-                "james",
-                "password");
+            "james",
+            "password");
     }
     public static ArticleRepository getInstance() {
-        return instance;
-    }
+    return instance;
+}
     public List<?> findAll() throws SQLException {
         List<Article> ls= new ArrayList<>();
         String sql = "select * from articles";

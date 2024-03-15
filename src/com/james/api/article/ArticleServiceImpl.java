@@ -2,6 +2,7 @@ package com.james.api.article;
 
 import com.james.api.common.AbstractService;
 import com.james.api.enums.Messenger;
+import com.james.api.user.User;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -55,6 +56,11 @@ public class ArticleServiceImpl extends AbstractService implements ArticleServic
 
     @Override
     public Boolean existsById(long id) {
+        return null;
+    }
+
+    @Override
+    public Messenger insertMenuData(User user) throws SQLException {
         return null;
     }
 }

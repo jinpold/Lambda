@@ -934,7 +934,7 @@ jamesdb|schema||james|localhost|UPDATE|G</Grants>
     </schema>
     <schema id="290" parent="1" name="jamesdb">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-03-14.08:13:45</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-03-15.02:51:41</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="291" parent="1" name="james">
@@ -1296,25 +1296,25 @@ jamesdb|schema||james|localhost|UPDATE|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="381" parent="290" name="player">
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="382" parent="290" name="schedule">
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="383" parent="290" name="stadium">
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="384" parent="290" name="team">
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </table>
-    <table id="385" parent="290" name="users">
+    <table id="381" parent="290" name="menus">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="382" parent="290" name="player">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="383" parent="290" name="schedule">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="384" parent="290" name="stadium">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="385" parent="290" name="team">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
     </table>
     <column id="386" parent="292" name="GRANTEE">
       <DasType>varchar(292)|0s</DasType>
@@ -5032,279 +5032,259 @@ ATTR_NAME</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1147" parent="381" name="player_id">
-      <DasType>varchar(10)|0s</DasType>
+    <column id="1147" parent="381" name="id">
+      <AutoIncrement>34</AutoIncrement>
+      <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="1148" parent="381" name="player_name">
+    <column id="1148" parent="381" name="item">
       <DasType>varchar(20)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="1149" parent="381" name="team_id">
-      <DasType>varchar(10)|0s</DasType>
+    <column id="1149" parent="381" name="category">
+      <DasType>varchar(20)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="1150" parent="381" name="e_player_name">
-      <DasType>varchar(40)|0s</DasType>
-      <Position>4</Position>
-    </column>
-    <column id="1151" parent="381" name="nickname">
-      <DasType>varchar(30)|0s</DasType>
-      <Position>5</Position>
-    </column>
-    <column id="1152" parent="381" name="join_yyyy">
-      <DasType>varchar(10)|0s</DasType>
-      <Position>6</Position>
-    </column>
-    <column id="1153" parent="381" name="POSITION">
-      <DasType>varchar(10)|0s</DasType>
-      <Position>7</Position>
-    </column>
-    <column id="1154" parent="381" name="back_no">
-      <DasType>varchar(10)|0s</DasType>
-      <Position>8</Position>
-    </column>
-    <column id="1155" parent="381" name="nation">
-      <DasType>varchar(20)|0s</DasType>
-      <Position>9</Position>
-    </column>
-    <column id="1156" parent="381" name="birth_date">
-      <DasType>varchar(20)|0s</DasType>
-      <Position>10</Position>
-    </column>
-    <column id="1157" parent="381" name="solar">
-      <DasType>varchar(10)|0s</DasType>
-      <Position>11</Position>
-    </column>
-    <column id="1158" parent="381" name="height">
-      <DasType>varchar(10)|0s</DasType>
-      <Position>12</Position>
-    </column>
-    <column id="1159" parent="381" name="weight">
-      <DasType>varchar(10)|0s</DasType>
-      <Position>13</Position>
-    </column>
-    <foreign-key id="1160" parent="381" name="player_fk">
-      <ColNames>team_id</ColNames>
-      <RefColNames>team_id</RefColNames>
-      <RefTableName>team</RefTableName>
-    </foreign-key>
-    <index id="1161" parent="381" name="PRIMARY">
-      <ColNames>player_id</ColNames>
+    <index id="1150" parent="381" name="PRIMARY">
+      <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1162" parent="381" name="player_fk">
-      <ColNames>team_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="1163" parent="381" name="PRIMARY">
+    <key id="1151" parent="381" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1164" parent="382" name="stadium_id">
+    <column id="1152" parent="382" name="player_id">
       <DasType>varchar(10)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="1165" parent="382" name="sche_date">
+    <column id="1153" parent="382" name="player_name">
+      <DasType>varchar(20)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="1154" parent="382" name="team_id">
+      <DasType>varchar(10)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="1155" parent="382" name="e_player_name">
+      <DasType>varchar(40)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="1156" parent="382" name="nickname">
+      <DasType>varchar(30)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="1157" parent="382" name="join_yyyy">
+      <DasType>varchar(10)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="1158" parent="382" name="POSITION">
+      <DasType>varchar(10)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="1159" parent="382" name="back_no">
+      <DasType>varchar(10)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="1160" parent="382" name="nation">
+      <DasType>varchar(20)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="1161" parent="382" name="birth_date">
+      <DasType>varchar(20)|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="1162" parent="382" name="solar">
+      <DasType>varchar(10)|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <column id="1163" parent="382" name="height">
+      <DasType>varchar(10)|0s</DasType>
+      <Position>12</Position>
+    </column>
+    <column id="1164" parent="382" name="weight">
+      <DasType>varchar(10)|0s</DasType>
+      <Position>13</Position>
+    </column>
+    <foreign-key id="1165" parent="382" name="player_fk">
+      <ColNames>team_id</ColNames>
+      <RefColNames>team_id</RefColNames>
+      <RefTableName>team</RefTableName>
+    </foreign-key>
+    <index id="1166" parent="382" name="PRIMARY">
+      <ColNames>player_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="1167" parent="382" name="player_fk">
+      <ColNames>team_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="1168" parent="382" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="1169" parent="383" name="stadium_id">
+      <DasType>varchar(10)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="1170" parent="383" name="sche_date">
       <DasType>varchar(10)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="1166" parent="382" name="gubun">
+    <column id="1171" parent="383" name="gubun">
       <DasType>varchar(10)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="1167" parent="382" name="hometeam_id">
+    <column id="1172" parent="383" name="hometeam_id">
       <DasType>varchar(10)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="1168" parent="382" name="awayteam_id">
+    <column id="1173" parent="383" name="awayteam_id">
       <DasType>varchar(10)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="1169" parent="382" name="home_score">
+    <column id="1174" parent="383" name="home_score">
       <DasType>int|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="1170" parent="382" name="away_score">
+    <column id="1175" parent="383" name="away_score">
       <DasType>int|0s</DasType>
       <Position>7</Position>
     </column>
-    <foreign-key id="1171" parent="382" name="schedule_fk">
+    <foreign-key id="1176" parent="383" name="schedule_fk">
       <ColNames>stadium_id</ColNames>
       <RefColNames>stadium_id</RefColNames>
       <RefTableName>stadium</RefTableName>
     </foreign-key>
-    <index id="1172" parent="382" name="PRIMARY">
+    <index id="1177" parent="383" name="PRIMARY">
       <ColNames>stadium_id
 sche_date</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="1173" parent="382" name="PRIMARY">
+    <key id="1178" parent="383" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1174" parent="383" name="stadium_id">
+    <column id="1179" parent="384" name="stadium_id">
       <DasType>varchar(10)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="1175" parent="383" name="stadium_name">
+    <column id="1180" parent="384" name="stadium_name">
       <DasType>varchar(40)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="1176" parent="383" name="hometeam_id">
+    <column id="1181" parent="384" name="hometeam_id">
       <DasType>varchar(10)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="1177" parent="383" name="seat_count">
+    <column id="1182" parent="384" name="seat_count">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="1178" parent="383" name="address">
+    <column id="1183" parent="384" name="address">
       <DasType>varchar(60)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="1179" parent="383" name="ddd">
+    <column id="1184" parent="384" name="ddd">
       <DasType>varchar(10)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="1180" parent="383" name="tel">
+    <column id="1185" parent="384" name="tel">
       <DasType>varchar(10)|0s</DasType>
       <Position>7</Position>
     </column>
-    <index id="1181" parent="383" name="PRIMARY">
+    <index id="1186" parent="384" name="PRIMARY">
       <ColNames>stadium_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="1182" parent="383" name="PRIMARY">
+    <key id="1187" parent="384" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1183" parent="384" name="team_id">
+    <column id="1188" parent="385" name="team_id">
       <DasType>varchar(10)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="1184" parent="384" name="region_name">
+    <column id="1189" parent="385" name="region_name">
       <DasType>varchar(10)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="1185" parent="384" name="team_name">
+    <column id="1190" parent="385" name="team_name">
       <DasType>varchar(40)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="1186" parent="384" name="e_team_name">
+    <column id="1191" parent="385" name="e_team_name">
       <DasType>varchar(50)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="1187" parent="384" name="orig_yyyy">
+    <column id="1192" parent="385" name="orig_yyyy">
       <DasType>varchar(10)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="1188" parent="384" name="stadium_id">
+    <column id="1193" parent="385" name="stadium_id">
       <DasType>varchar(10)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="1189" parent="384" name="zip_code1">
+    <column id="1194" parent="385" name="zip_code1">
       <DasType>varchar(10)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="1190" parent="384" name="zip_code2">
+    <column id="1195" parent="385" name="zip_code2">
       <DasType>varchar(10)|0s</DasType>
       <Position>8</Position>
     </column>
-    <column id="1191" parent="384" name="address">
+    <column id="1196" parent="385" name="address">
       <DasType>varchar(80)|0s</DasType>
       <Position>9</Position>
     </column>
-    <column id="1192" parent="384" name="ddd">
+    <column id="1197" parent="385" name="ddd">
       <DasType>varchar(10)|0s</DasType>
       <Position>10</Position>
     </column>
-    <column id="1193" parent="384" name="tel">
+    <column id="1198" parent="385" name="tel">
       <DasType>varchar(10)|0s</DasType>
       <Position>11</Position>
     </column>
-    <column id="1194" parent="384" name="fax">
+    <column id="1199" parent="385" name="fax">
       <DasType>varchar(10)|0s</DasType>
       <Position>12</Position>
     </column>
-    <column id="1195" parent="384" name="homepage">
+    <column id="1200" parent="385" name="homepage">
       <DasType>varchar(50)|0s</DasType>
       <Position>13</Position>
     </column>
-    <column id="1196" parent="384" name="OWNER">
+    <column id="1201" parent="385" name="OWNER">
       <DasType>varchar(10)|0s</DasType>
       <Position>14</Position>
     </column>
-    <foreign-key id="1197" parent="384" name="team_fk">
+    <foreign-key id="1202" parent="385" name="team_fk">
       <ColNames>stadium_id</ColNames>
       <RefColNames>stadium_id</RefColNames>
       <RefTableName>stadium</RefTableName>
     </foreign-key>
-    <index id="1198" parent="384" name="PRIMARY">
+    <index id="1203" parent="385" name="PRIMARY">
       <ColNames>team_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1199" parent="384" name="team_fk">
+    <index id="1204" parent="385" name="team_fk">
       <ColNames>stadium_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1200" parent="384" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="1201" parent="385" name="id">
-      <AutoIncrement>2</AutoIncrement>
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="1202" parent="385" name="username">
-      <DasType>varchar(20)|0s</DasType>
-      <Position>2</Position>
-    </column>
-    <column id="1203" parent="385" name="password">
-      <DasType>varchar(20)|0s</DasType>
-      <Position>3</Position>
-    </column>
-    <column id="1204" parent="385" name="name">
-      <DasType>varchar(20)|0s</DasType>
-      <Position>4</Position>
-    </column>
-    <column id="1205" parent="385" name="phone">
-      <DasType>varchar(20)|0s</DasType>
-      <Position>5</Position>
-    </column>
-    <column id="1206" parent="385" name="job">
-      <DasType>varchar(20)|0s</DasType>
-      <Position>6</Position>
-    </column>
-    <column id="1207" parent="385" name="height">
-      <DasType>varchar(20)|0s</DasType>
-      <Position>7</Position>
-    </column>
-    <column id="1208" parent="385" name="weight">
-      <DasType>varchar(20)|0s</DasType>
-      <Position>8</Position>
-    </column>
-    <index id="1209" parent="385" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="1210" parent="385" name="PRIMARY">
+    <key id="1205" parent="385" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

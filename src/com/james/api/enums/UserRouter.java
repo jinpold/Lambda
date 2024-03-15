@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-public enum UserRouterOfPredicate {
+public enum UserRouter {
     EXIT("x", (scanner) ->{
         System.out.println("종료");
         return false;
@@ -87,7 +87,7 @@ public enum UserRouterOfPredicate {
     private final String name;
     private final Predicate<Scanner> predicate;
 
-    UserRouterOfPredicate(String name, Predicate<Scanner> predicate) {
+    UserRouter(String name, Predicate<Scanner> predicate) {
         this.name = name;
         this.predicate = predicate;
     }

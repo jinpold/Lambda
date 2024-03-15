@@ -5,17 +5,16 @@ import java.util.List;
 import java.util.Scanner;
 public class AccountController {
 
-
-    //싱글톤 패턴
-    // 생성자를 알트 + insert로 만든다.
+    private static AccountController instance = new AccountController();
     AccountServiceImpl accountService;
 
     public AccountController() {
         this.accountService = AccountServiceImpl.getInstance();
     }
-    //  new AccountServiceImpl -> AccountServiceImpl.getInstance(); 바꿔준다.
-    // 싱글톤 패턴 종료.
 
+    public static AccountController getInstance() {
+        return instance;
+    }
 
     public Messenger createAccount(Scanner sc) { // 계좌생성
         System.out.println("입력하세요");

@@ -61,6 +61,7 @@ public enum NavigationOfFunction {
     }
 
     public static String navigate(Scanner sc) { //외부 호출
+
         System.out.println("\n === x-Exit +" +
                 "u-User " +
                 "b-Board " +

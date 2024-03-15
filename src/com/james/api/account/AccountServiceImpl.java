@@ -1,6 +1,9 @@
 package com.james.api.account;
 import com.james.api.common.AbstractService;
 import com.james.api.enums.Messenger;
+import com.james.api.user.User;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -72,6 +75,11 @@ public class AccountServiceImpl extends AbstractService<Account> implements Acco
 
     @Override
     public Boolean existsById(long id) {
+        return null;
+    }
+
+    @Override
+    public Messenger insertMenuData(User user) throws SQLException {
         return null;
     }
 }

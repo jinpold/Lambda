@@ -16,18 +16,21 @@ public class UserRepository {
             throw new RuntimeException(e);
         }
     }
+
     private Connection connection;
+
     private UserRepository() throws SQLException {
 
-         connection = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/jamesdb",
-            "james",
-            "password");
+        connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/jamesdb",
+                "james",
+                "password");
 
-         pstmt = null;
-         rs = null;
+        pstmt = null;
+        rs = null;
 
     }
+
     public static UserRepository getInstance() {
         return instance;
     }
@@ -37,7 +40,7 @@ public class UserRepository {
     }
 
     public List<?> findUsers() throws SQLException {
-        List<User> ls= new ArrayList<>();
+        List<User> ls = new ArrayList<>();
         String sql = "select * from users";
         pstmt = connection.prepareStatement(sql);
         rs = pstmt.executeQuery();
@@ -54,7 +57,7 @@ public class UserRepository {
                         .weight(rs.getDouble("weight"))
                         .build());
             } while (rs.next());
-        }else{
+        } else {
             System.out.println("데이터가 없습니다.");
         }
         return ls;
@@ -74,14 +77,15 @@ public class UserRepository {
                 ");";
 
         pstmt = connection.prepareStatement(sql);
-        return (pstmt.executeUpdate()==0) ? Messenger.SUCCESS: Messenger.FAIL ; // 삼항연산자
+        return (pstmt.executeUpdate() == 0) ? Messenger.SUCCESS : Messenger.FAIL; // 삼항연산자
 
     }
+
     public Messenger deleteTable() throws SQLException {
 
         String sql = "DROP TABLE IF EXISTS users";
         pstmt = connection.prepareStatement(sql);
-        return (pstmt.executeUpdate()==0) ? Messenger.SUCCESS: Messenger.FAIL;
+        return (pstmt.executeUpdate() == 0) ? Messenger.SUCCESS : Messenger.FAIL;
     }
 
     public Messenger insertData(User user) throws SQLException {
@@ -96,9 +100,11 @@ public class UserRepository {
         pstmt.setString(5, user.getJob());
         pstmt.setDouble(6, user.getHeight());
         pstmt.setDouble(7, user.getWeight());
-        return (pstmt.executeUpdate() == 1) ? Messenger.SUCCESS: Messenger.FAIL;
+        return (pstmt.executeUpdate() == 1) ? Messenger.SUCCESS : Messenger.FAIL;
     }
+
     public void sqlClose() throws SQLException {
         connection.close();
     }
+
 }

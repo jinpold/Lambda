@@ -1,6 +1,8 @@
 package com.james.api.common;
 
 import com.james.api.enums.Messenger;
+import com.james.api.user.User;
+
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +25,5 @@ public abstract class AbstractService <T> {
     public  abstract  Boolean existsById(long id);
 
 
-
-
+    public abstract Messenger insertMenuData(User user) throws SQLException;
 }

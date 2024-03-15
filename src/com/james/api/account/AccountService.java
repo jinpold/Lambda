@@ -7,5 +7,4 @@ public interface AccountService {
         String withdraw(Account account);
         String getBalance(String accountNumber);
 
-
 }

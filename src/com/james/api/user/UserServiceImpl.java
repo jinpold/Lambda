@@ -3,7 +3,6 @@ import com.james.api.common.AbstractService;
 import com.james.api.common.UtilService;
 import com.james.api.common.UtilServiceImpl;
 import com.james.api.enums.Messenger;
-
 import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -68,6 +67,12 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     public Boolean existsById(long id) {
         return users.containsKey(id);
     }
+
+    @Override
+    public Messenger insertMenuData(User user) throws SQLException {
+        return null;
+    }
+
     @Override
     public List<?> findUsersByName(String name) {
         return users
@@ -148,7 +153,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     public Messenger deleteTable() throws SQLException {
         return userRepository.deleteTable();
     }
-
+    @Override
     public Messenger insertData(User user) throws SQLException {
         return userRepository.insertData(user);
     }
